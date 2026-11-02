@@ -7,8 +7,11 @@ let rec decode l =
   match l with
   | [] -> []
   | h :: t ->
-    let rec aux l i =
-      match l with
-      | One (elem) -> elem :: aux t (i - 1)
-      | Many (count, elem) -> elem :: aux t (i - 1)
-    in aux l 1
+    match h with
+    | One elem -> elem :: decode t
+    | Many (count, elem) ->
+      let rec aux count elem =
+        if count = 0
+        then []
+        else elem :: aux (count - 1) elem
+      in aux count elem @ decode t
