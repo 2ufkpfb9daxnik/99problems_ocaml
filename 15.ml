@@ -1,4 +1,4 @@
-(* replicate : 'a list int -> 'a list *)
+(* replicate : 'a list -> int -> 'a list *)
 let rec replicate l n =
   match l with
   | [] -> []
