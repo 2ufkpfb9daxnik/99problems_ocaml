@@ -1,4 +1,4 @@
-(* remove_at : 'a list -> 'a list *)
+(* remove_at : int -> 'a list -> 'a list *)
 let remove_at n l =
   let rec aux l n i =
     match l with
