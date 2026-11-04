@@ -2,7 +2,7 @@
 (* そもそもrandの使い方知らんがちでは *)
 (* rand_select : 'a list -> int -> 'a list *)
 let rand_select l n =
+  Random.self_init ();
   let rec aux l n i =
     let x = Random.int n in
-    x :: i in
     
